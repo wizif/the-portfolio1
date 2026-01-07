@@ -3,7 +3,6 @@
 A modern, responsive portfolio website built with React and Tailwind CSS, showcasing my journey as a MERN Stack and React Native developer.
 
 ## 🚀 Live Demo
-
 Visit the live portfolio at: [Your Portfolio URL]
 
 ## 📋 Table of Contents
