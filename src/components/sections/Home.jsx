@@ -6,14 +6,13 @@ import resumePDF from '../../assets/Images/resume.pdf';
 
 const Home = () => {
   const [currentRole, setCurrentRole] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
   
   const roles = [
-    "MERN Stack Developer",
-    "React Native Developer", 
     "Full-Stack Developer",
+    "React Native Developer", 
+    "MERN & Next.js Engineer",
     "Problem Solver"
   ];
 
@@ -39,7 +38,7 @@ const Home = () => {
     <section 
       id="home" 
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black pt-16"
     >
       {/* Dynamic Background Grid */}
       <div className="absolute inset-0 overflow-hidden">
@@ -130,8 +129,7 @@ const Home = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
         }`}>
           <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-            MERN Stack & React Native developer with hands-on experience building real applications. 
-            From DevConnect to Financial Literacy apps - I craft digital solutions that matter.
+            Full-Stack Developer (Next.js, MERN & React Native) with hands-on experience building production apps, Play Store releases & cloud integrations.
           </p>
         </div>
         
@@ -174,10 +172,10 @@ const Home = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
         }`}>
           {[
-            { icon: Github, href: "https://github.com/arvinxlogic", label: "GitHub" },
-            { icon: Linkedin, href: "https://linkedin.com/in/arvindsingh2213", label: "LinkedIn" },
+            { icon: Github, href: "https://github.com/wizif", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/arvindsingh2213/", label: "LinkedIn" },
             { icon: Mail, href: "mailto:arvindsinghxz@gmail.com", label: "Email" },
-          ].map((social, idx) => (
+          ].map((social) => (
             <a
               key={social.label}
               href={social.href}
@@ -201,13 +199,6 @@ const Home = () => {
           <ChevronDown className="w-6 h-6 text-gray-400 animate-bounce" />
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes grid-move {
-          0% { transform: translate(0, 0); }
-          100% { transform: translate(50px, 50px); }
-        }
-      `}</style>
     </section>
   );
 };

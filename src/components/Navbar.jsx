@@ -9,7 +9,7 @@ const Navbar = ({ menuOpen, setMenuOpen, activeSection }) => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / scrollHeight) * 100;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
       
       setScrolled(scrollTop > 50);
       setScrollProgress(progress);
@@ -22,6 +22,7 @@ const Navbar = ({ menuOpen, setMenuOpen, activeSection }) => {
   const navItems = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
@@ -69,12 +70,12 @@ const Navbar = ({ menuOpen, setMenuOpen, activeSection }) => {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center">
-              <div className="flex items-center space-x-1 bg-gray-900/30 backdrop-blur-lg rounded-full p-1 border border-gray-800/50">
+              <div className="flex items-center space-x-1 bg-gray-900/40 backdrop-blur-lg rounded-full p-1 border border-gray-800/60">
                 {navItems.map((item) => (
                   <button
                     key={item.href}
                     onClick={() => scrollToSection(item.href)}
-                    className={`relative px-6 py-2.5 text-sm font-medium rounded-full transition-all duration-300 ${
+                    className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                       activeSection === item.href.slice(1)
                         ? 'text-white bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/25'
                         : 'text-gray-400 hover:text-white hover:bg-gray-800/50'

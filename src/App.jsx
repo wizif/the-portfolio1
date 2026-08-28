@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/sections/Home";
 import About from "./components/sections/About";
+import Experience from "./components/sections/Experience";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
@@ -27,8 +28,8 @@ function App() {
   // Track active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "contact"];
-      const scrollPos = window.scrollY + 100;
+      const sections = ["home", "about", "experience", "skills", "projects", "contact"];
+      const scrollPos = window.scrollY + 120;
 
       sections.forEach((section) => {
         const element = document.getElementById(section);
@@ -80,6 +81,7 @@ function App() {
         <main>
           <Home />
           <About />
+          <Experience />
           <Skills />
           <Projects />
           <Contact />
@@ -99,8 +101,8 @@ function App() {
               </div>
               
               <div className="text-gray-400 text-center md:text-right">
-                <p className="mb-2">&copy; {new Date().getFullYear()} Arvind Singh Crafted with precision.</p>
-                <p className="text-sm">Built with React, Tailwind CSS & passion</p>
+                <p className="mb-2">&copy; {new Date().getFullYear()} Arvind Singh. Crafted with precision.</p>
+                <p className="text-sm">Built with React, Next.js, Tailwind CSS & passion</p>
               </div>
             </div>
           </div>

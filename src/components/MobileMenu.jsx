@@ -5,9 +5,10 @@ const MobileMenu = ({ menuOpen, setMenuOpen }) => {
   const navItems = [
     { label: "Home", href: "#home", number: "01" },
     { label: "About", href: "#about", number: "02" },
-    { label: "Skills", href: "#skills", number: "03" },
-    { label: "Projects", href: "#projects", number: "04" },
-    { label: "Contact", href: "#contact", number: "05" },
+    { label: "Experience", href: "#experience", number: "03" },
+    { label: "Skills", href: "#skills", number: "04" },
+    { label: "Projects", href: "#projects", number: "05" },
+    { label: "Contact", href: "#contact", number: "06" },
   ];
 
   const scrollToSection = (href) => {
@@ -44,7 +45,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen }) => {
         </button>
 
         {/* Navigation Links */}
-        <nav className="flex flex-col items-center space-y-8">
+        <nav className="flex flex-col items-center space-y-6">
           {navItems.map((item, idx) => (
             <button
               key={item.href}
@@ -57,7 +58,7 @@ const MobileMenu = ({ menuOpen, setMenuOpen }) => {
               <span className="text-sm font-mono text-gray-500 group-hover:text-blue-400 transition-colors duration-300">
                 {item.number}
               </span>
-              <span className="text-3xl font-light text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
+              <span className="text-2xl font-light text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
                 {item.label}
               </span>
               <div className="w-0 group-hover:w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-300" />

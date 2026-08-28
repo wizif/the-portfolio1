@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Github, ExternalLink, Code, Database, Globe, Smartphone, Chrome, Award, Zap } from "lucide-react";
 
-// Import all project images - UPDATED with new web project images
+// Import project images
 import devconnectImg from '../../assets/Images/devconnect.png';
 import devCollabImg from '../../assets/Images/dev-collab.png';
 import spotifyImg from '../../assets/Images/Spotify.png';
@@ -13,78 +13,96 @@ import foodAppImg from '../../assets/Images/web-demo-projectimage.jpg';
 import streamYtImg from '../../assets/Images/web-project-another.png';
 import netflixGptImg from '../../assets/Images/web-demo-2-project-last-image.jpeg';
 import psb from '../../assets/Images/Psb1.png';
+
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
   const sectionRef = useRef(null);
 
   const projects = [
-    // 1. BEST - DevConnect (Fully hosted and working)
+    // 1. DevConnect (From Resume)
     {
       id: 5,
-      title: "DevConnect",
-      description: "Professional networking platform for developers with JWT auth, profile matching, and real-time messaging.",
-      longDescription: "Full-stack MERN application with sophisticated match algorithms, WebSocket-based real-time chat, and comprehensive profile system. Features include protected routes, skill-based discovery, connection workflows, and responsive Tailwind UI with dark mode support.",
-      technologies: ["React", "Node.js", "MongoDB", "Socket.io", "Tailwind"],
+      title: "DevConnect -- Developer Networking Platform",
+      description: "Deployed live app on AWS with profile management, developer connections, real-time WebSocket chat, and background email notifications.",
+      longDescription: "Full-stack developer networking platform built with MERN stack, deployed on AWS EC2 behind Nginx. Features real-time chat via WebSockets, profile matching algorithms, automated background notifications, JWT authentication, and responsive UI.",
+      technologies: ["MERN", "AWS EC2", "Socket.io", "Nginx", "MongoDB", "Express", "React", "Node.js"],
       image: devconnectImg,
       platforms: ["Web"],
       status: "Completed",
-      githubUrl: "https://github.com/arvinxlogic/DevCollabify",
-      liveUrl: "https://connectdev.online",
+      githubUrl: "https://github.com/wizif/DevCollabify",
+      liveUrl: "https://dev-collabifiy.vercel.app/",
       featured: true
     },
-    
-    // 2. Dev Workflow & Collaboration (AWS + n8n - Complex)
+
+    // 2. WiseMate (From Resume)
+    {
+      id: 10,
+      title: "WiseMate -- AI Learning Assistant",
+      description: "AI learning platform featuring 5 core tools: diagram generator, study planner, code reviewer, career roadmaps, and chatbot.",
+      longDescription: "Created an AI-powered educational platform featuring 5 distinct tools: smart diagram generator using Mermaid.js from text descriptions, AI study planner, context-aware code reviewer, career roadmaps, and academic query chatbot with Cloudinary media storage.",
+      technologies: ["MERN", "Gemini API", "Mermaid.js", "Cloudinary", "React", "Node.js"],
+      image: wiseImg,
+      platforms: ["Web"],
+      status: "Hackathon Top 10",
+      githubUrl: "https://github.com/wizif/AI_STUDENT_ASSISTANT",
+      liveUrl: "",
+      featured: true,
+      achievement: "Top 10 Finalist (Next Quantum 2.0)"
+    },
+
+    // 3. PrepLock (From Resume)
+    {
+      id: 2,
+      title: "PrepLock -- Multi-Platform Productivity App",
+      description: "Cross-platform study productivity suite (Chrome extension, website, mobile app) that blocks distractions until tasks are done.",
+      longDescription: "BuildFest Hackathon Top 15 multi-platform productivity suite featuring a Chrome Extension, web portal, and React Native mobile app. Includes Gemini AI for flashcard generation, real-time cross-platform data sync with JWT authentication, and Pomodoro task blocking.",
+      technologies: ["MERN", "React Native", "Gemini API", "Chrome Extension", "Firebase"],
+      image: preplockImg,
+      platforms: ["Web", "Mobile", "Chrome Extension"],
+      status: "Hackathon Top 15",
+      githubUrl: "https://github.com/wizif/ProductivityWithNoDistraction",
+      liveUrl: "",
+      featured: true,
+      achievement: "Top 15 / 115 Teams (DevCreate BuildFest 1.0)"
+    },
+
+    // 4. Dev Collaboration & Workflow Automation
     {
       id: 1,
-      title: "Dev Collaboration and Workflow Automation",
+      title: "Dev Collaboration & Workflow Automation",
       description: "Enterprise automation platform with AWS services (EC2, S3, Lambda, RDS) and n8n workflow engine for scalable project management.",
-      longDescription: "Production-grade MERN stack platform integrated with AWS cloud infrastructure. Implements microservices architecture with n8n automation, Cognito authentication, S3 object storage, Lambda serverless functions, and PostgreSQL RDS. Features include CI/CD pipelines, real-time monitoring, and enterprise-level security protocols.",
-      technologies: ["React", "Node.js", "MongoDB", "AWS", "n8n", "PostgreSQL", "Cognito", "Lambda", "Amplify"],
+      longDescription: "Production-grade MERN stack platform integrated with AWS cloud infrastructure. Implements microservices architecture with n8n automation, Cognito authentication, S3 object storage, Lambda serverless functions, and PostgreSQL RDS.",
+      technologies: ["React", "Node.js", "MongoDB", "AWS", "n8n", "PostgreSQL", "Cognito", "Lambda"],
       image: devCollabImg,
       platforms: ["Web"],
-      status: "In Development",
-      githubUrl: "https://github.com/arvinxlogic/Dev_Workflow_and_collaboration_platform",
-      liveUrl: "https://main.dbfnxdceymc08.amplifyapp.com/",
+      status: "Completed",
+      githubUrl: "https://github.com/wizif/Dev_Workflow_and_collaboration_platform",
+      liveUrl: "https://devprojectflow-web-platform-devflow.vercel.app/",
       featured: true
     },
-    
-    // 3. Spotify Clone (Full-stack with Admin Panel)
+
+    // 5. Spotify Clone
     {
       id: 11,
       title: "Spotify Clone",
-      description: "Full-stack music streaming platform with admin panel, Cloudinary integration for media management, and complete CRUD operations.",
-      longDescription: "Professional music streaming application featuring admin dashboard for uploading albums and songs via Cloudinary, user authentication, playlist management, music player with controls, search functionality, and responsive design. Built with MERN stack showcasing full-stack capabilities from backend API to frontend UI.",
+      description: "Full-stack music streaming platform with admin panel, Cloudinary media management, and complete CRUD operations.",
+      longDescription: "Professional music streaming application featuring an admin dashboard for uploading albums and songs via Cloudinary, user authentication, playlist management, custom audio player with controls, and search functionality.",
       technologies: ["React", "Node.js", "MongoDB", "Cloudinary", "Express", "Tailwind CSS"],
       image: spotifyImg,
       platforms: ["Web"],
       status: "Completed",
-      githubUrl: "https://github.com/arvinxlogic/Spotify-FullStack",
+      githubUrl: "https://github.com/wizif/Spotify-FullStack",
       liveUrl: "https://music-on-wisemen.vercel.app/admin",
       featured: true
     },
-    
-    // 4. WiseMate (AI Assistant - Impressive)
-    {
-      id: 10,
-      title: "WiseMate - AI Learning Assistant",
-      description: "AI learning assistant with study planning, visual roadmaps using Mermaid.js, and intelligent code help.",
-      longDescription: "Hackathon-winning educational platform featuring AI-powered personalized study schedules, interactive learning roadmaps with Mermaid.js visualizations, context-aware code assistance, and intelligent chatbot for academic queries. Emphasizes UX design and accessibility.",
-      technologies: ["React", "Node.js", "AI APIs", "Mermaid.js", "MongoDB"],
-      image: wiseImg,
-      platforms: ["Web"],
-      status: "Hackathon Project",
-      githubUrl: "https://github.com/arvinxlogic/AI_STUDENT_ASSISTANT",
-      liveUrl: "",
-      featured: true
-    },
-    
-    // 5. PSB Financial Hub (Mobile - Real client project)
+
+    // 6. PSB Financial Hub
     {
       id: 3,
       title: "PSB Financial Hub",
-      description: "Financial literacy mobile app for PSB Hackathon - interactive lessons, quizzes, and fraud awareness for banking customers.",
-      longDescription: "Educational mobile platform built for public sector banks. Features multi-screen navigation, progress tracking with AsyncStorage, offline-first architecture, and gamified learning modules. Includes real-world fraud prevention scenarios and personalized financial planning tools.",
+      description: "Financial literacy mobile app built for public sector banks with interactive lessons, quizzes, and fraud prevention scenarios.",
+      longDescription: "Educational mobile platform built for public sector bank hackathons. Features multi-screen navigation, progress tracking with AsyncStorage, offline-first architecture, and gamified financial learning modules.",
       technologies: ["React Native", "CLI", "AsyncStorage", "JavaScript", "Node.js", "MongoDB"],
       image: psb,
       platforms: ["Mobile"],
@@ -93,90 +111,74 @@ const Projects = () => {
       liveUrl: "",
       featured: true
     },
-    
-    // 6. PrepLock (Multi-platform Hackathon Winner)
-    {
-      id: 2,
-      title: "PrepLock",
-      description: "Cross-platform study productivity suite with AI-powered flashcards and task management. Winner at BuildFest Hackathon.",
-      longDescription: "Award-winning multi-platform solution (web, mobile, Chrome extension) featuring Gemini AI for intelligent flashcard generation from PDF syllabi. Includes personalized learning roadmaps, Pomodoro-based task blocking, and AI mentor chatbot. Real-time sync across all platforms with offline support.",
-      technologies: ["React", "React Native", "Node.js", "Gemini AI", "Firebase"],
-      image: preplockImg,
-      platforms: ["Web", "Mobile", "Chrome Extension"],
-      status: "Hackathon Top 15",
-      githubUrl: "https://github.com/arvinxlogic/ProductivityWithNoDistraction",
-      liveUrl: "",
-      featured: true,
-      achievement: "Top 15 / 115 Teams"
-    },
-    
-    // 7. Real-Time Chat (WebSocket showcase) - NEW IMAGE
+
+    // 7. Real-Time Chat
     {
       id: 6,
-      title: "Real-Time Chat",
-      description: "Cross-platform messaging app with Socket.io, Firebase auth, and seamless web-mobile synchronization.",
-      longDescription: "Dual-platform real-time communication system using WebSocket protocol. Features include online presence indicators, typing feedback, message read receipts, emoji support, and encrypted message storage in MongoDB with automatic sync between platforms.",
+      title: "Real-Time Chat System",
+      description: "Cross-platform messaging app with Socket.io, Firebase auth, and web-mobile sync.",
+      longDescription: "Dual-platform real-time communication system using WebSocket protocol with Socket.io. Features presence indicators, typing feedback, read receipts, and encrypted storage.",
       technologies: ["React", "React Native", "Socket.io", "MongoDB", "Firebase"],
-      image: chatAppImg, // Using web-project-image.webp
+      image: chatAppImg,
       platforms: ["Web", "Mobile"],
       status: "In Development",
-      githubUrl: "https://github.com/arvinxlogic/Chat-App",
+      githubUrl: "https://github.com/wizif/Chat-App",
       liveUrl: ""
     },
-    
-    // 8. TaskMaster (Mobile with Firebase)
+
+    // 8. TaskMaster
     {
       id: 4,
       title: "TaskMaster",
-      description: "Built mobile app with todo management, notes, and analytics dashboard tracking daily/weekly task trends.",
-      longDescription: "Feature-rich React Native app with AsyncStorage for local persistence and interactive charts for daily analytics..",
-      technologies: ["React Native",  "AsyncStorage", "Charts"],
+      description: "Offline-first mobile productivity app with task management, notes, and analytics charts.",
+      longDescription: "Feature-rich React Native app utilizing AsyncStorage for offline persistence, custom task categorization, and trend analytics charts.",
+      technologies: ["React Native", "AsyncStorage", "Charts"],
       image: mobileAppImg,
       platforms: ["Mobile"],
       status: "Completed",
-      githubUrl: "https://github.com/arvinxlogic/offline-productivity-app1",
+      githubUrl: "https://github.com/wizif/offline-productivity-app1",
       liveUrl: ""
     },
-    
-    // 9. FoodApp (Frontend with performance optimization) - NEW IMAGE
+
+    // 9. FoodApp
     {
       id: 7,
       title: "FoodApp",
-      description: "Restaurant discovery platform with lazy loading, shimmer UI, and advanced search filters.",
-      longDescription: "Performance-optimized React application implementing code splitting, React Router nested routes, and error boundaries. Features include restaurant API integration, dynamic search with debouncing, filter combinations, and responsive card-based layouts.",
+      description: "Performance-optimized restaurant discovery platform with shimmer UI and dynamic search filters.",
+      longDescription: "React application implementing code splitting, React Router nested routes, API integration, dynamic debounced search, and responsive card layouts.",
       technologies: ["React", "React Router", "JavaScript", "CSS3"],
-      image: foodAppImg, // Using web-demo-projectimage.jpg
+      image: foodAppImg,
       platforms: ["Web"],
       status: "Completed",
-      githubUrl: "https://github.com/arvinxlogic/food-app",
+      githubUrl: "https://github.com/wizif/food-app",
       liveUrl: ""
     },
-    
-    // 10. StreamYT (YouTube API integration) - NEW IMAGE
+
+    // 10. StreamYT
     {
       id: 8,
       title: "StreamYT",
-      description: "YouTube-inspired video platform with intelligent search, debounced suggestions, and pagination.",
-      longDescription: "Video streaming interface leveraging YouTube Data API with optimized search using request debouncing. Implements infinite scroll pagination, state management for watch history, responsive video grids, and caching strategies for improved performance.",
+      description: "YouTube-inspired video platform leveraging YouTube Data API with search debouncing and pagination.",
+      longDescription: "Video streaming interface built with YouTube Data API featuring request debouncing, state management for watch history, responsive video grids, and caching.",
       technologies: ["React", "YouTube API", "JavaScript", "CSS3"],
-      image: streamYtImg, // Using web-project-another.png
+      image: streamYtImg,
       platforms: ["Web"],
       status: "Completed",
-      githubUrl: "https://github.com/arvinxlogic/Youtube-clone",
+      githubUrl: "https://github.com/wizif/Youtube-clone",
       liveUrl: ""
     },
-    
-    // 11. NetflixGPT (Frontend with AI) - NEW IMAGE
+
+    // 11. NetflixGPT
     {
       id: 9,
       title: "NetflixGPT",
-      description: "Streaming UI with Firebase authentication, TMDB API integration, and AI-powered recommendations.",
-      longDescription: "Netflix-inspired React application with Firebase authentication system, movie browsing with TMDB API, watchlist management, and AI-assisted content discovery. Features route guards, modal overlays, and smooth transitions.",
+      description: "Movie browsing UI with Firebase authentication, TMDB API, and AI-powered content recommendations.",
+      longDescription: "Netflix-inspired React application with Firebase authentication system, movie browsing using TMDB API, watchlist management, and AI-assisted content discovery.",
       technologies: ["React", "Firebase", "TMDB API", "AI Integration"],
-      image: netflixGptImg, // Using web-demo-2-project-last-image.jpeg
+      image: netflixGptImg,
       platforms: ["Web"],
       status: "Completed",
-      githubUrl: "https://github.com/arvinxlogic/Netflix-GPT.",
+      githubUrl: "https://github.com/wizif/Netflix-GPT",
       liveUrl: ""
     }
   ];
@@ -210,6 +212,12 @@ const Projects = () => {
         icon: Code
       },
       'Hackathon Top 15': {
+        color: 'from-yellow-500/20 to-amber-500/20',
+        text: 'text-yellow-400',
+        border: 'border-yellow-500/40',
+        icon: Award
+      },
+      'Hackathon Top 10': {
         color: 'from-yellow-500/20 to-amber-500/20',
         text: 'text-yellow-400',
         border: 'border-yellow-500/40',
@@ -294,7 +302,7 @@ const Projects = () => {
                       />
                     )}
                     
-                    {/* Platform Badges - Clean minimal style */}
+                    {/* Platform Badges */}
                     <div className="absolute top-4 left-4 flex gap-2 z-10">
                       {project.platforms.map((platform) => {
                         const config = getPlatformConfig(platform);
@@ -389,13 +397,13 @@ const Projects = () => {
             Explore more projects and contributions on GitHub
           </p>
           <a
-            href="https://github.com/arvinxlogic"
+            href="https://github.com/wizif"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800/60 hover:bg-gray-700/60 text-gray-300 hover:text-white rounded-lg transition-all border border-gray-700/50 hover:border-gray-600/50"
           >
             <Github className="w-5 h-5" />
-            <span className="font-medium">View All Repositories</span>
+            <span className="font-medium">View All Repositories (@wizif)</span>
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>

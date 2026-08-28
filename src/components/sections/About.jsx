@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Code, Palette, Zap, Users, Award, Star } from "lucide-react";
+import { Code, Palette, Zap, Users, Award, Star, Briefcase } from "lucide-react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -7,34 +7,34 @@ const About = () => {
   const sectionRef = useRef(null);
 
   const stats = [
-    { key: 'projects', number: 8, label: "Projects Built", suffix: "+" },
-    { key: 'experience', number: 2, label: "Years Learning", suffix: "+" },
+    { key: 'projects', number: 11, label: "Projects Built", suffix: "+" },
+    { key: 'experience', number: 1, label: "Year Industry Exp", suffix: "+" },
     { key: 'satisfaction', number: 100, label: "Code Quality", suffix: "%" },
   ];
 
   const highlights = [
     {
       icon: Code,
-      title: "MERN Stack Expertise",
-      description: "Full-stack development with MongoDB, Express, React, and Node.js",
+      title: "Full-Stack Development",
+      description: "Production web & mobile apps with Next.js, MERN stack, React Native & Expo",
       color: "from-blue-400 to-cyan-400"
     },
     {
       icon: Palette,
-      title: "React Native Mobile",
-      description: "Cross-platform mobile app development with native performance",
+      title: "Mobile Architecture",
+      description: "Google Play Store published apps, biometric auth, offline caching & push notifications",
       color: "from-sky-400 to-blue-500"
     },
     {
       icon: Zap,
-      title: "Modern JavaScript",
-      description: "ES6+, TypeScript, Redux Toolkit, and component-driven architecture",
+      title: "API & Cloud Integration",
+      description: "AWS (EC2, SES), DigiLocker API Setu, OAuth 2.0, WebSockets (Socket.io) & CI/CD pipelines",
       color: "from-cyan-400 to-teal-500"
     },
     {
       icon: Users,
-      title: "Problem Solver",
-      description: "Hackathon finalist with experience in team collaboration and innovation",
+      title: "Hackathon Competitor",
+      description: "Top 15 finalist at DevCreate BuildFest (115 teams) & Top 10 at Next Quantum 2.0",
       color: "from-blue-500 to-indigo-500"
     }
   ];
@@ -88,11 +88,11 @@ const About = () => {
           
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              MERN Stack Developer
+              Full-Stack & Mobile
             </span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              & Tech Enthusiast
+              Developer
             </span>
           </h2>
         </div>
@@ -105,27 +105,23 @@ const About = () => {
             <div className="space-y-8">
               <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
                 <p>
-                  Hi there! I'm Arvind Singh, a passionate MERN Stack and React Native developer 
-                  currently pursuing B.Tech in Computer Science from CT Institute of Technology, 
-                  Jalandhar. With hands-on experience building real applications, I've developed 
-                  a strong foundation in modern web and mobile technologies.
+                  Hi there! I'm Arvind Singh, a Full-Stack Developer (MERN / Next.js) and React Native engineer 
+                  pursuing my B.Tech in Computer Science & Engineering from CT Institute of Technology & Research (IKGPTU), Jalandhar.
                 </p>
                 <p>
-                  From building DevTinder (a developer matchmaking platform) to creating a 
-                  Financial Literacy app for PSB's Hackathon Series 2025, I love transforming 
-                  ideas into functional, user-friendly applications. My journey includes training 
-                  under Akshay Saini's curriculum and practical experience at ThinkNEXT Technologies.
+                  Recently, I worked as a <strong className="text-blue-400">Full-Stack Developer Intern at Omnimise</strong> (Bangalore, Remote), 
+                  where I served as the sole developer delivering a production document-vault platform, published the mobile app to 
+                  the Google Play Store, integrated DigiLocker via API Setu, and built real-time WebSocket messaging systems with biometric vault security.
                 </p>
                 <p>
-                  When I'm not coding, you'll find me exploring new tech stacks, participating 
-                  in hackathons, or contributing to open-source projects. I believe in continuous 
-                  learning and staying updated with the latest industry trends.
+                  I love competitive hacking and building impactful products—ranking in the <strong className="text-cyan-400">Top 15 out of 115 teams</strong> at 
+                  DevCreate BuildFest 1.0 (GDG Jalandhar) and <strong className="text-cyan-400">Top 10</strong> at Next Quantum 2.0.
                 </p>
               </div>
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8">
-                {stats.map((stat, idx) => (
+                {stats.map((stat) => (
                   <div key={stat.key} className="text-center">
                     <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
                       {counters[stat.key]}{stat.suffix}
@@ -185,10 +181,10 @@ const About = () => {
               <div className="space-y-4">
                 <div>
                   <h4 className="text-lg font-semibold text-blue-400">B.Tech Computer Science & Engineering</h4>
-                  <p className="text-gray-300">CT Institute of Technology & Research, Jalandhar</p>
-                  <div className="flex justify-between text-sm text-gray-500 mt-1">
-                    <span>2022 - 2026</span>
-                    <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded-full">GPA: 8.0/10</span>
+                  <p className="text-gray-300">CT Institute of Technology & Research (IKGPTU), Jalandhar</p>
+                  <div className="flex justify-between items-center text-sm text-gray-500 mt-2">
+                    <span>2022 -- 2026</span>
+                    <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">CGPA: 8.0 / 10</span>
                   </div>
                 </div>
               </div>
@@ -198,24 +194,26 @@ const About = () => {
             <div className="p-8 bg-gray-900/30 backdrop-blur-sm rounded-2xl border border-gray-800/50">
               <h3 className="text-xl font-bold text-white mb-6 flex items-center space-x-3">
                 <Star className="w-6 h-6 text-cyan-400" />
-                <span>Achievements</span>
+                <span>Key Achievements</span>
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-4 text-sm">
                 <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-300">Top 10 Finalist - Next Quantum 2.0 Hackathon</p>
+                  <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                  <p className="text-gray-300">
+                    <strong className="text-white">Top 15 Finalist</strong> -- DevCreate BuildFest 1.0 Hackathon (GDG Jalandhar), ranked among top 15 of 115 teams.
+                  </p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-sky-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-300">Web Mania 2025 - Appreciation Award</p>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
+                  <p className="text-gray-300">
+                    <strong className="text-white">Top 10 Finalist</strong> -- Next Quantum 2.0 Hackathon (GGI), built AI learning assistant.
+                  </p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-300">PSBs Hackathon Series 2025 Participant</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-300">Frontend Developer Trainee - ThinkNEXT Technologies</p>
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
+                  <p className="text-gray-300">
+                    <strong className="text-white">Appreciation Award</strong> -- Web Mania 2025 (Lyallpur Khalsa College), recognized for frontend logic.
+                  </p>
                 </div>
               </div>
             </div>
@@ -229,8 +227,7 @@ const About = () => {
           <div className="max-w-3xl mx-auto">
             <div className="text-6xl text-blue-500/20 mb-4">"</div>
             <blockquote className="text-xl md:text-2xl font-light text-gray-300 mb-6 italic leading-relaxed">
-              Every line of code I write is a step towards building solutions that make a 
-              real difference in people's lives.
+              From architecting production document vaults and publishing apps on Play Store to building real-time collaboration engines—I bring ideas to life with precision code.
             </blockquote>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto" />
           </div>

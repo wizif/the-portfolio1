@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { Mail, Github, Linkedin, Send, MapPin, Phone, Calendar, ArrowRight, Heart, CheckCircle } from "lucide-react";
+import { Mail, Github, Linkedin, Send, MapPin, Phone, Calendar, ArrowRight, CheckCircle } from "lucide-react";
+import resumePDF from '../../assets/Images/resume.pdf';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,9 +26,9 @@ const Contact = () => {
     {
       icon: Github,
       title: "GitHub",
-      info: "@arvinxlogic",
+      info: "@wizif",
       subtitle: "Check out my repositories",
-      action: "https://github.com/arvinxlogic",
+      action: "https://github.com/wizif",
       color: "from-gray-400 to-slate-500"
     },
     {
@@ -35,7 +36,7 @@ const Contact = () => {
       title: "LinkedIn",
       info: "arvindsingh2213",
       subtitle: "Let's connect professionally",
-      action: "https://linkedin.com/in/arvindsingh2213",
+      action: "https://www.linkedin.com/in/arvindsingh2213/",
       color: "from-blue-500 to-blue-700"
     },
     {
@@ -121,8 +122,8 @@ const Contact = () => {
           </h2>
           
           <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
-            Have an exciting project in mind? Looking for a MERN stack developer or React Native expert? 
-            I'd love to hear about your ideas and help bring them to life.
+            Looking for a Full-Stack Developer (MERN / Next.js) or React Native Mobile Engineer? 
+            I'd love to hear about your ideas, opportunities, or collaboration.
           </p>
         </div>
 
@@ -244,10 +245,10 @@ const Contact = () => {
                   style={{ transitionDelay: `${600 + idx * 100}ms` }}
                 >
                   <div className={`p-4 rounded-2xl bg-gradient-to-r ${method.color} bg-opacity-10 group-hover:scale-110 transition-transform duration-300`}>
-                    <method.icon className={`w-6 h-6 bg-gradient-to-r ${method.color} bg-clip-text`} style={{ color: 'transparent', backgroundClip: 'text' }} />
+                    <method.icon className="w-6 h-6 text-blue-400" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
+                    <h4 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-all duration-300">
                       {method.title}
                     </h4>
                     <p className="text-gray-300 font-medium">{method.info}</p>
@@ -269,10 +270,10 @@ const Contact = () => {
                     <div className="w-3 h-3 bg-green-500 rounded-full" />
                     <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75" />
                   </div>
-                  <span className="text-green-400 font-semibold">Available for new opportunities</span>
+                  <span className="text-green-400 font-semibold">Available for Full-time Roles & Contracts</span>
                 </div>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  Currently seeking full-time roles, internships, and freelance projects. 
+                  Open for software development roles, full-stack positions, and mobile engineering projects.
                   Typical response time: Within 24 hours.
                 </p>
               </div>
@@ -292,45 +293,28 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Experience Highlight */}
-            <div className={`mt-12 transition-all duration-1000 delay-1000 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-            }`}>
-              <div className="relative p-8 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl border border-blue-500/20">
-                <div className="text-4xl text-blue-500/30 mb-4">"</div>
-                <blockquote className="text-lg text-gray-300 italic leading-relaxed mb-4">
-                  From hackathon finalist to building real-world applications with MERN stack and 
-                  React Native. I'm passionate about creating solutions that make a difference.
-                </blockquote>
-                <div className="text-right">
-                  <cite className="text-blue-400 font-medium">- Arvind Singh</cite>
-                  <p className="text-gray-500 text-sm">MERN Stack & React Native Developer</p>
-                </div>
-              </div>
-            </div>
-
             {/* CTA */}
             <div className={`text-center pt-8 transition-all duration-1000 delay-1200 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`}>
               <p className="text-gray-400 mb-4">Ready to build something amazing together?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-  href="/resume.pdf"  // This will point to public/resume.pdf
-  download="Arvind_Singh_Resume.pdf"  // Suggested filename for download
-  className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
->
-  <span>Download Resume</span>
-</a>
+                <a
+                  href={resumePDF}
+                  download="Arvind_Singh_Resume.pdf"
+                  className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
+                >
+                  <span>Download Resume</span>
+                </a>
 
                 <a
-                  href="https://github.com/arvinxlogic"
+                  href="https://github.com/wizif"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 px-6 py-3 border-2 border-blue-500 text-blue-400 rounded-full font-semibold hover:bg-blue-500/10 hover:scale-105 transition-all duration-300"
                 >
                   <Github className="w-4 h-4" />
-                  <span>View Projects</span>
+                  <span>View GitHub (@wizif)</span>
                 </a>
               </div>
             </div>
