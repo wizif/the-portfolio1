@@ -93,7 +93,7 @@ const Projects = () => {
       platforms: ["Web"],
       status: "Completed",
       githubUrl: "https://github.com/wizif/Spotify-FullStack",
-      liveUrl: "https://music-on-wisemen.vercel.app/admin",
+      liveUrl: "https://musicon-arv1.vercel.app/",
       featured: true
     },
 
