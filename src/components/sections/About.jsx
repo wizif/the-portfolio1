@@ -7,7 +7,7 @@ const About = () => {
   const sectionRef = useRef(null);
 
   const stats = [
-    { key: 'projects', number: 11, label: "Projects Built", suffix: "+" },
+    { key: 'projects', number: 22, label: "Projects Built", suffix: "+" },
     { key: 'experience', number: 1, label: "Year Industry Exp", suffix: "+" },
     { key: 'satisfaction', number: 100, label: "Code Quality", suffix: "%" },
   ];
@@ -200,7 +200,7 @@ const About = () => {
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
                   <p className="text-gray-300">
-                    <strong className="text-white">Top 15 Finalist</strong> -- DevCreate BuildFest 1.0 Hackathon (GDG Jalandhar), ranked among top 15 of 115 teams.
+                    <strong className="text-white">Appreciation Award</strong> -- Web Mania 2025 (Lyallpur Khalsa College), recognized for innovative frontend logic & implementation.
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -212,7 +212,7 @@ const About = () => {
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0" />
                   <p className="text-gray-300">
-                    <strong className="text-white">Appreciation Award</strong> -- Web Mania 2025 (Lyallpur Khalsa College), recognized for frontend logic.
+                    <strong className="text-white">Top 15 Finalist</strong> -- DevCreate BuildFest 1.0 Hackathon (GDG Jalandhar), ranked among top 15 of 115 teams.
                   </p>
                 </div>
               </div>

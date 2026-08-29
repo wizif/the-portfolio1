@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Github, ExternalLink, Code, Database, Globe, Smartphone, Chrome, Award, Zap } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Import project images
 import devconnectImg from '../../assets/Images/devconnect.png';
@@ -92,7 +93,7 @@ const Projects = () => {
       image: spotifyImg,
       platforms: ["Web"],
       status: "Completed",
-      githubUrl: "https://github.com/wizif/Spotify-FullStack",
+      githubUrl: "https://github.com/wizif/MUSIC-FullStack",
       liveUrl: "https://musicon-arv1.vercel.app/",
       featured: true
     },

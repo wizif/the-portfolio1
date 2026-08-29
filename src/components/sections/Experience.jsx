@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Briefcase, Calendar, MapPin, ExternalLink, CheckCircle2, ChevronRight, Award, Smartphone, Globe, ShieldCheck } from "lucide-react";
+import { Briefcase, Calendar, MapPin, ExternalLink, ChevronRight } from "lucide-react";
 
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,9 +22,10 @@ const Experience = () => {
         "Built DigiLocker integration via API Setu: OAuth callback flow, encrypted XML parsing, document field mapping, and resync/restore logic.",
         "Designed a real-time vault messaging system on Socket.io with document/image/PDF delivery and mobile-optimized rendering via expo-file-system.",
         "Implemented multi-provider OAuth (DigiLocker, GitHub, Dribbble) with deep linking and biometric vault authentication using expo-local-authentication.",
+        "Integrated Mixpanel analytics across web and mobile platforms to track user event streams, retention metrics, and feature-usage funnels.",
         "Designed RBAC for an HR/recruitment module and a vault credentials manager with categorized storage and 3-way sharing; set up Jest test suites and a staging CI/CD pipeline."
       ],
-      tech: ["Next.js", "React Native", "Expo", "Socket.io", "DigiLocker API", "OAuth 2.0", "Biometric Auth", "RBAC", "Jest", "CI/CD"]
+      tech: ["Next.js", "React Native", "Expo", "Socket.io", "DigiLocker API", "OAuth 2.0", "Biometric Auth", "RBAC", "Mixpanel", "Jest", "CI/CD"]
     },
     {
       id: 1,
