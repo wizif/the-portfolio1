@@ -344,9 +344,20 @@ const Projects = () => {
                       {project.title}
                     </h3>
                     
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
-                      {hoveredProject === project.id ? project.longDescription : project.description}
-                    </p>
+                    <div className="mb-4 flex-1 min-h-[85px]">
+                      <AnimatePresence mode="wait">
+                        <motion.p
+                          key={hoveredProject === project.id ? "long" : "short"}
+                          initial={{ opacity: 0, y: 5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -5 }}
+                          transition={{ duration: 0.15, ease: "easeInOut" }}
+                          className="text-gray-400 text-sm leading-relaxed"
+                        >
+                          {hoveredProject === project.id ? project.longDescription : project.description}
+                        </motion.p>
+                      </AnimatePresence>
+                    </div>
                     
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-5">

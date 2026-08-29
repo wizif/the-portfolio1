@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Mail, Github, Linkedin, Send, MapPin, Phone, Calendar, ArrowRight, CheckCircle } from "lucide-react";
 import resumePDF from '../../assets/Images/resume.pdf';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,15 +13,16 @@ const Contact = () => {
   });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [submissionType, setSubmissionType] = useState("direct");
   const sectionRef = useRef(null);
 
   const contactMethods = [
     {
       icon: Mail,
       title: "Email",
-      info: "arvindsinghxz@gmail.com",
+      info: "arvindsinghq05@gmail.com",
       subtitle: "Best way to reach me",
-      action: "mailto:arvindsinghxz@gmail.com",
+      action: "mailto:arvindsinghq05@gmail.com",
       color: "from-blue-400 to-cyan-400"
     },
     {
@@ -63,26 +65,57 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
+  const triggerMailtoFallback = () => {
+    setSubmissionType("client");
+    const subject = encodeURIComponent(formData.subject || "Portfolio Contact");
+    const body = encodeURIComponent(`Hi Arvind,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\nBest regards,\n${formData.name}`);
+    const mailtoUrl = `mailto:arvindsinghq05@gmail.com?subject=${subject}&body=${body}`;
+    
+    window.location.href = mailtoUrl;
+    
+    setSending(false);
+    setSent(true);
+    setFormData({ name: "", email: "", subject: "", message: "" });
+    setTimeout(() => setSent(false), 4000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setSending(true);
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject || "Portfolio Contact");
-    const body = encodeURIComponent(`Hi Arvind,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\nBest regards,\n${formData.name}`);
-    
-    const mailtoUrl = `mailto:arvindsinghxz@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Open default email client
-    window.location.href = mailtoUrl;
-    
-    // Simulate sending process
-    setTimeout(() => {
-      setSending(false);
-      setSent(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setSent(false), 4000);
-    }, 1000);
+    setSubmissionType("direct");
+
+    const serviceId = import.meta.env.VITE_SERVICE_ID;
+    const templateId = import.meta.env.VITE_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+
+    if (serviceId && templateId && publicKey) {
+      emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          reply_to: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: "Arvind Singh",
+        },
+        publicKey
+      )
+      .then((result) => {
+        console.log("Email sent successfully via EmailJS!", result.text);
+        setSending(false);
+        setSent(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setSent(false), 4000);
+      })
+      .catch((error) => {
+        console.error("EmailJS sending failed, using mailto fallback:", error);
+        triggerMailtoFallback();
+      });
+    } else {
+      triggerMailtoFallback();
+    }
   };
 
   const handleInputChange = (e) => {
@@ -205,12 +238,20 @@ const Contact = () => {
                     {sent ? (
                       <>
                         <CheckCircle className="w-5 h-5" />
-                        <span>Opening Email Client...</span>
+                        <span>
+                          {submissionType === "direct"
+                            ? "Message Sent Successfully!"
+                            : "Opening Email Client..."}
+                        </span>
                       </>
                     ) : sending ? (
                       <>
                         <div className="w-5 h-5 border-2 border-gray-300 border-t-transparent rounded-full animate-spin" />
-                        <span>Preparing Email...</span>
+                        <span>
+                          {submissionType === "direct"
+                            ? "Sending Message..."
+                            : "Preparing Email..."}
+                        </span>
                       </>
                     ) : (
                       <>

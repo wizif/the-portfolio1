@@ -174,7 +174,7 @@ const Home = () => {
           {[
             { icon: Github, href: "https://github.com/wizif", label: "GitHub" },
             { icon: Linkedin, href: "https://www.linkedin.com/in/arvindsingh2213/", label: "LinkedIn" },
-            { icon: Mail, href: "mailto:arvindsinghxz@gmail.com", label: "Email" },
+            { icon: Mail, href: "mailto:arvindsinghq05@gmail.com", label: "Email" },
           ].map((social) => (
             <a
               key={social.label}
