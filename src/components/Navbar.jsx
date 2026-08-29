@@ -45,11 +45,14 @@ const Navbar = ({ menuOpen, setMenuOpen, activeSection }) => {
         />
       </div>
 
-      <nav className={`fixed top-1 w-full z-40 transition-all duration-500 ${
-        scrolled 
-          ? 'bg-black/90 backdrop-blur-xl border-b border-gray-800/50 shadow-2xl' 
-          : 'bg-transparent'
-      }`}>
+      <nav 
+        className={`fixed top-1 w-full z-40 transition-all duration-500 ${
+          scrolled 
+            ? 'bg-black/90 backdrop-blur-xl border-b shadow-2xl' 
+            : 'bg-transparent'
+        }`}
+        style={scrolled ? { borderBottomColor: 'rgba(38, 38, 38, 0.4)' } : { borderBottomColor: 'transparent' }}
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
