@@ -289,7 +289,11 @@ const Projects = () => {
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <div className="relative bg-gray-900/40 backdrop-blur-sm rounded-2xl border border-gray-800/60 overflow-hidden hover:border-gray-700/60 transition-all duration-500 h-full flex flex-col">
+                <motion.div 
+                  layout
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="relative bg-gray-900/40 backdrop-blur-sm rounded-2xl border border-gray-800/60 overflow-hidden hover:border-gray-700/60 transition-all duration-500 h-full flex flex-col"
+                >
                   {/* Image Area */}
                   <div className="relative h-56 bg-gradient-to-br from-gray-800/50 to-gray-900/50 overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.1),transparent_50%)]"></div>
@@ -395,7 +399,7 @@ const Projects = () => {
                       )}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             );
           })}

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Mail, Github, Linkedin, Send, MapPin, Phone, Calendar, ArrowRight, CheckCircle } from "lucide-react";
 import resumePDF from '../../assets/Images/resume.pdf';
-import emailjs from 'emailjs-com';
+import { init, send } from 'emailjs-com';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -88,32 +88,44 @@ const Contact = () => {
     const templateId = import.meta.env.VITE_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
+    console.log("Vite env credentials checked:", {
+      serviceIdLoaded: !!serviceId,
+      templateIdLoaded: !!templateId,
+      publicKeyLoaded: !!publicKey
+    });
+
     if (serviceId && templateId && publicKey) {
-      emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          reply_to: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_name: "Arvind Singh",
-        },
-        publicKey
-      )
-      .then((result) => {
-        console.log("Email sent successfully via EmailJS!", result.text);
-        setSending(false);
-        setSent(true);
-        setFormData({ name: "", email: "", subject: "", message: "" });
-        setTimeout(() => setSent(false), 4000);
-      })
-      .catch((error) => {
-        console.error("EmailJS sending failed, using mailto fallback:", error);
+      try {
+        init(publicKey);
+        send(
+          serviceId,
+          templateId,
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            reply_to: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            to_name: "Arvind Singh",
+          }
+        )
+        .then((result) => {
+          console.log("Email sent successfully via EmailJS!", result.text);
+          setSending(false);
+          setSent(true);
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          setTimeout(() => setSent(false), 4000);
+        })
+        .catch((error) => {
+          console.error("EmailJS API response failure, falling back to mailto client:", error);
+          triggerMailtoFallback();
+        });
+      } catch (err) {
+        console.error("EmailJS SDK synchronous invocation failure, falling back to mailto client:", err);
         triggerMailtoFallback();
-      });
+      }
     } else {
+      console.warn("Missing EmailJS environment variables. Initiating mailto fallback...");
       triggerMailtoFallback();
     }
   };
