@@ -106,7 +106,7 @@ const About = () => {
               <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
                 <p>
                   Hi there! I'm Arvind Singh, a Full-Stack Developer (MERN / Next.js) and React Native engineer 
-                  pursuing my B.Tech in Computer Science & Engineering from CT Institute of Technology & Research (IKGPTU), Jalandhar.
+                  who graduated with a B.Tech in Computer Science & Engineering from CT Institute of Technology & Research (IKGPTU), Jalandhar.
                 </p>
                 <p>
                   Recently, I worked as a <strong className="text-blue-400">Full-Stack Developer Intern at Omnimise</strong> (Bangalore, Remote), 
