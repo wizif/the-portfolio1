@@ -9,7 +9,7 @@ const Contact = () => {
     name: "",
     email: "",
     subject: "",
-    message: "",
+    message: "", 
   });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
