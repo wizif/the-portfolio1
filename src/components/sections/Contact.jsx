@@ -354,6 +354,8 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href={resumePDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   download="Arvind_Singh_Resume.pdf"
                   className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
                 >
