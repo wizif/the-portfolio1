@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Github, Linkedin, Mail, ArrowRight, MousePointer } from "lucide-react";
 // Import profile photo and resume from assets
 import profilePhoto from '../../assets/Images/arvind-photo.jpg';
-import resumePDF from '../../assets/Images/resume.pdf';
+import resumePDF from '../../assets/Arvind_Resume.pdf';
 
 const Home = () => {
   const [currentRole, setCurrentRole] = useState(0);

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Mail, Github, Linkedin, Send, MapPin, Phone, Calendar, ArrowRight, CheckCircle } from "lucide-react";
-import resumePDF from '../../assets/Images/resume.pdf';
+import resumePDF from '../../assets/Arvind_Resume.pdf';
 import { init, send } from 'emailjs-com';
 
 const Contact = () => {
